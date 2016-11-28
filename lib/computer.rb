@@ -1,13 +1,19 @@
 class Computer
   attr_reader :choices, :final_choice, :name
+
+  CHOICES = ["Rock", "Paper", "Scissors"]
+
   def initialize
     @name = "The Computer"
-    @choices = ["Rock", "Paper", "Scissors"]
     @final_choice = nil
   end
 
   def pick_one
-    self.final_choice = choices.sample
+    @final_choice = choices.sample
+  end
+
+  def choices
+    CHOICES
   end
 
   private
