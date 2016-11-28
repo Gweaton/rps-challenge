@@ -21,16 +21,8 @@ class Game
     @game_master
   end
 
-  def rock
-    @player_choice = player.rock
-  end
-
-  def paper
-    @player_choice = player.paper
-  end
-
-  def scissors
-    @player_choice = player.scissors
+  def shape(weapon)
+    @player_choice = weapon
   end
 
   def computer_turn
@@ -51,6 +43,7 @@ class Game
 
   private
   attr_writer :victor
+  attr_writer :player_choice
   def rock_beats_scissors?
     self.victor = self.player.name if self.player_choice == "Rock" && self.computer_choice == "Scissors"
     self.victor = self.computer.name if self.player_choice == "Scissors" && self.computer_choice == "Rock"

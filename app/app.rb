@@ -22,22 +22,12 @@ class RPS < Sinatra::Base
     erb :play
   end
 
-  post '/rock' do
-    @game = Game.instance
-    @game.rock
-    redirect to('/confirmation')
-  end
 
-  post '/paper' do
+  post '/confirmation' do
     @game = Game.instance
-    @game.paper
+    shape = params[:shape]
+    @game.shape(shape)
     redirect to('/confirmation')
-  end
-
-  post '/scissors' do
-    @game = Game.instance
-    @game.scissors
-    redirect to('confirmation')
   end
 
   get '/confirmation' do

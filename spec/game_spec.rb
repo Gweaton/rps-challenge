@@ -29,22 +29,17 @@ describe Game do
     end
   end
 
-  context "player's turn" do
-    before do
-      allow(player).to receive(:rock) { "Rock" }
-      allow(player).to receive(:paper) { "Paper" }
-      allow(player).to receive(:scissors) { "Scissors" }
-    end
+  context "shape" do
     it "should store rock" do
-      game.rock
+      game.shape("Rock")
       expect(game.player_choice).to eq "Rock"
     end
     it "should store paper" do
-      game.paper
+      game.shape("Paper")
       expect(game.player_choice).to eq "Paper"
     end
     it "should store scissors" do
-      game.scissors
+      game.shape("Scissors")
       expect(game.player_choice).to eq "Scissors"
     end
   end
